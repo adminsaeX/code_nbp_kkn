@@ -1,0 +1,17 @@
+
+  {
+      "ssid":"SAE",
+      "passw":"qwerty987654",
+      "Device_ID":"1",
+      "buadRate":"9600",
+      "TimeOut":"3000",
+      "Timequery":"200",
+      "SN":"KKN120190723",
+      "proID":"KKN1",
+      "TimeSend":"60000",
+      "serverIP":"178.128.219.211",
+      "serverPort":"9010"
+  }
+
+
+  

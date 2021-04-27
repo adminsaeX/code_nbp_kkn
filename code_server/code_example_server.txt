@@ -1,0 +1,35 @@
+const express = require('express');
+const app = express();
+var port = 4000;
+
+var Promise = require('promise');
+
+var mongojs = require('mongojs');
+var myiotdb = mongojs('myiotdb');
+var dhtdb = mongojs('dht');
+
+var data, datasize, dataset='';
+var t, h;
+
+app.get('/', function (req, res) {
+  res.send("my iot Protocol ready !");
+});
+
+app.get('/write/:data', function (req, res) {
+  var strParseWriteReq = JSON.stringify(req.params);
+  var strWriteReq = JSON.parse(strParseWriteReq);
+  data = strWriteReq.data;
+  writedata(data, res);
+});
+
+app.get('/read/:datasize', function (req, res) {
+  var strParseReadReq = JSON.stringify(req.params);
+  var strReadReq = JSON.parse(strParseReadReq);
+  datasize = strReadReq.datasize;
+  readdata(datasize, res);
+});
+
+/* For DHT write */
+app.get('/writedht/:t/:h', function (req, res) {
+  var strParseWriteReq = JSON.stringify(req.params);
+  var strWriteReq = JSON.parse(strParseWriteReq);
